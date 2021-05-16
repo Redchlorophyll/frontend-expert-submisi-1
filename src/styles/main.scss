@@ -1,0 +1,14 @@
+@use "font";
+@use "reset_css";
+@use "navbar";
+@use "heros";
+@use "paper";
+@use "body";
+@use "footer";
+
+body {
+  background-color: #E7E7E7;
+}
+img {
+    display: block;
+}
