@@ -53,3 +53,50 @@
 
   }
 }
+
+
+@media only screen and (min-width:582px) {
+  .header {
+    &-nav {
+      height: 54px;
+      width: 100%;
+      background-color: v.$primary-color;
+      display: grid;
+      grid-template-columns: 0 1fr;
+
+      .spin-toggle {
+        display: none;
+      }
+
+      ul {
+        display: block;
+        margin-left: 45vw;
+        padding-top: 25px;
+        li {
+          display: inline;
+          padding-left: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:1024px) {
+  .header {
+    &-nav {
+      ul {
+        margin-left: 60vw;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width:1128px) {
+  .header {
+    &-nav {
+      ul {
+        margin-left: 70vw;
+      }
+    }
+  }
+}
