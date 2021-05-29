@@ -33,10 +33,10 @@
 
     //hamburger icons
     .spin-toggle {
-      margin-top: 20px;
+      margin-top: 10px;
       margin-left: 20px;
       width: 10%;
-      height: 20px;
+      height: 44px;
 
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
@@ -45,16 +45,17 @@
       span {
         border-radius: 5px;
         display: block;
-        width: 28px;
-        height: 4px;
+        width: 44px;
+        height: 8px;
         background-color: #000;
         transition: all 0.5s;
 
       }
 
-      input {
-        width: 28px;
-        height: 20px;
+      button {
+        width: 44px;
+        height: 44px;
+        background-color: red;
         position: absolute;
         opacity: 0;
         z-index: 1;
@@ -66,7 +67,17 @@
 }
 
 .skip-link {
+   position: absolute;
+   top: -40px;
+   left: 0;
+   background-color: #bf1722;
+   color: white;
+   padding: 8px;
+   z-index: 100;
+}
 
+.skip-link:focus {
+   top: 0;
 }
 
 @media only screen and (min-width:582px) {

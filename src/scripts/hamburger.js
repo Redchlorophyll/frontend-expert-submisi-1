@@ -6,8 +6,8 @@ const navUrl = document.querySelectorAll(".nav-url");
 
 console.log(main);
 burgerCheck.addEventListener("click", () => {
-  sidePanel.classList.toggle('unhide');
   sidePanel.classList.remove('hide');
+  sidePanel.classList.toggle('unhide');
 });
 
 closeBtn.addEventListener("click", () => {
@@ -26,7 +26,7 @@ main.addEventListener("click", () => {
 
 navUrl.forEach(tag => {
   tag.addEventListener("click", () => {
-    sidePanel.classList.toggle('hide');
+    sidePanel.classList.toggle('hide4');
     sidePanel.classList.remove('unhide');
   })
 });
