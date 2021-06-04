@@ -9,7 +9,7 @@ export function restourantcard(datas) {
     <a href="#">
     <article class="card">
       <div class="image-container">
-        <img src="${restaurant.pictureId}" alt="gambar restaurant ${restaurant.name} yang terletak di ${restaurant.city}">
+        <img src="${restaurant.pictureId}" alt="restaurant ${restaurant.name} yang terletak di ${restaurant.city}">
       </div>
       <div class="info-container">
         <div class="info-wrapper">

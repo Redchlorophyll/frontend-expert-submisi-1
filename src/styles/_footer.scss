@@ -14,8 +14,12 @@ footer {
     margin-top: 10px;
 
     a {
+      padding-top: 10px;
       color: v.$primary-color;
       text-decoration: none;
+      display: inline-block;
+      min-width: 44px;
+      min-height: 44px;
     }
 
   }

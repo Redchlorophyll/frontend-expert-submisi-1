@@ -11,23 +11,27 @@
 
     &-icon {
       width: 88px;
+      position: absolute;
       padding-top: 15px;
       margin-left: 13vw;
     }
 
     ul {
       display: none;
+      width: 360px;
+
 
       a {
         color: #000;
         text-decoration: none;
+        display: inline-block;
+        min-width: 44px;
+        min-height: 44px;
 
         &:hover {
           color: #fff;
         }
       }
-
-
     }
 
 
@@ -96,10 +100,14 @@
       ul {
         display: block;
         margin-left: 45vw;
-        padding-top: 25px;
+        // padding-top: 15px;
         li {
           display: inline;
           padding-left: 30px;
+
+          a {
+            padding-top: 25px;
+          }
         }
       }
     }
