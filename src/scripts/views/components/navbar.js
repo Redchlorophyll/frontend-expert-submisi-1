@@ -221,7 +221,6 @@ class NavBar extends HTMLElement {
   connectedCallback() {
     this.sideBarClickEventListener(this.burgerCheck);
     this.sideBarClickEventListener(this.closeBtn);
-    this.sideBarClickEventListener(this.main);
     this.navigationEventListener();
   }
 

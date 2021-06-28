@@ -1,3 +1,5 @@
+import API_ENDPOINT from '../../globals/api-endpoint';
+
 const template = document.createElement('template');
 template.innerHTML = `
 <style>
@@ -62,7 +64,7 @@ template.innerHTML = `
 
 .article-info {
   width: 100%;
-  max-width: 250px;
+  max-width: 300px;
   height: 60px;
 }
 
@@ -82,13 +84,13 @@ template.innerHTML = `
 }
 
 h1 {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 h2 {
-  font-size: 100%;
+  font-size: 80%;
   font-weight: normal;
 }
 
@@ -104,51 +106,28 @@ h2 {
   }
 }
 </style>
+
 <div class="article-wrapper">
   <article class="article-detail">
-    <div class="article-header">
-      <img src="./images/heros/15.jpeg" alt="">
+    <div class="article-header" id="article-header">
 
-      <div class="article-info">
-        <div class="wrapper">
-          <div class="rectangle"></div>
-          <div class="article-title">
-            <h1>Makan mudah</h1>
-            <h2>Kota Medan | rate: 4/5</h2>
-          </div>
-        </div>
-      </div>
     </div>
 
     <div class="article-content">
       <div class="tag-wrapper">
-        <div class="tag">
-          <span>Bali</span>
-        </div>
-        <div class="tag">
-          <span>Bali</span>
-        </div>
-        <div class="tag">
-          <span>Bali</span>
-        </div>
-        <div class="tag">
-          <span>Bali</span>
-        </div>
-        <div class="tag">
-          <span>Bali</span>
-        </div>
+
       </div>
       <div class="content-wrapper">
         <div class="desc">
-          <p>quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+          <p id="desc">quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
         </div>
         <div class="food-menus">
           <p>Makanan:</p>
-          <p class="list">Daging Sapi , Bebek crepes , Toastie salmon , Kari terong , Paket rosemary , Salad lengkeng</p>
+          <p class="list" id="foods">Daging Sapi , Bebek crepes , Toastie salmon , Kari terong , Paket rosemary , Salad lengkeng</p>
         </div>
         <div class="beverage-menus">
           <p>minuman:</p>
-          <p class="list">Sirup , Jus mangga , Es teh , Jus jeruk , Teh manis , Kopi espresso , Es kopi , Minuman soda , Jus alpukat , Jus tomat , Es krim , Coklat panas</p>
+          <p class="list" id="beverages">Sirup , Jus mangga , Es teh , Jus jeruk , Teh manis , Kopi espresso , Es kopi , Minuman soda , Jus alpukat , Jus tomat , Es krim , Coklat panas</p>
         </div>
       </div>
     </div>
@@ -157,12 +136,54 @@ h2 {
 `;
 
 class DetailBar extends HTMLElement {
-  constructor() {
+  constructor({ restaurant }) {
     super();
     this.showInfo = true;
 
     this.attachShadow({ mode: 'open' });
     this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.restaurant = restaurant;
+  }
+
+  connectedCallback() {
+    this.setArticleHeader();
+    this.setCategory();
+  }
+
+  setArticleHeader() {
+    const {
+      name, city, address, rating, pictureId,
+    } = this.restaurant;
+    const articleHeader = this.shadowRoot.querySelector('#article-header');
+
+    const headerContent = `
+    <img src="${API_ENDPOINT.IMAGE('medium', pictureId)}" alt="restoran ${name} yang berlokasi di ${address}. ${city}">
+
+    <div class="article-info">
+      <div class="wrapper">
+        <div class="rectangle"></div>
+        <div class="article-title">
+          <h1 id="title">${name}</h1>
+          <h2 id="city-and-rate">${address}, ${city} | rate: ${rating}/5</h2>
+        </div>
+      </div>
+    </div>
+    `;
+
+    articleHeader.innerHTML = headerContent;
+  }
+
+  setCategory() {
+    const { categories } = this.restaurant;
+    const tagWrapper = this.shadowRoot.querySelector('.tag-wrapper');
+
+    categories.forEach((category) => {
+      tagWrapper.innerHTML += `
+      <div class="tag">
+        <span>${category.name}</span>
+      </div>
+      `;
+    });
   }
 }
 

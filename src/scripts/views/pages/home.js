@@ -11,7 +11,6 @@ const Home = {
     </div>
     <div class="parent">
       <section id="card-parent" class="wrapper">
-
       </section>
     </div>
     `;
@@ -20,9 +19,13 @@ const Home = {
   async afterRender() {
     const restaurants = await RestaurantSource.RestaurantList();
     const restaurantContainer = document.querySelector('#card-parent');
+
+    const header = document.querySelector('.hero-wrapper');
+    header.innerHTML += '<hero-bar></hero-bar>';
+
     restaurants.forEach((restaurant) => {
       restaurantContainer.innerHTML += `
-      <card-bar src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}" href="detail.html">
+      <card-bar src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}" href="${`#/detail/${restaurant.id}`}">
         <div slot="name">${restaurant.name}</div>
         <span slot="rating">${restaurant.rating} / 5</span>
         <div slot="city">${restaurant.city}</div>

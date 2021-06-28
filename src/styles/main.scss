@@ -7,10 +7,16 @@
 @use "footer";
 @use "detail";
 @use "save-button";
+@use "preloader";
+
 
 body {
   background-color: #E7E7E7;
 }
 img {
     display: block;
+}
+
+.main {
+  min-height: 700px;
 }
