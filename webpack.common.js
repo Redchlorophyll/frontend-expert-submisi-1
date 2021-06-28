@@ -9,6 +9,10 @@ module.exports = {
       template: path.resolve(__dirname, 'src/templates/index.html'),
       filename: 'index.html',
     }),
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/templates/detail.html'),
+      filename: 'detail.html',
+    }),
     new CopyWebpackPlugin({
       patterns: [
         {

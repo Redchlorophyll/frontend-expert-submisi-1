@@ -37,10 +37,10 @@
 
     //hamburger icons
     .spin-toggle {
-      margin-top: 10px;
+      margin-top: 15px;
       margin-left: 20px;
       width: 10%;
-      height: 44px;
+      height: 26px;
 
       display: grid;
       grid-template-rows: 1fr 1fr 1fr;
@@ -49,8 +49,8 @@
       span {
         border-radius: 5px;
         display: block;
-        width: 44px;
-        height: 8px;
+        width: 33px;
+        height: 4px;
         background-color: #000;
         transition: all 0.5s;
 

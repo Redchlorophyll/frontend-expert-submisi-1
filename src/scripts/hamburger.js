@@ -1,32 +1,31 @@
-const burgerCheck = document.querySelector("#check-burger");
+const burgerCheck = document.querySelector('#check-burger');
 const sidePanel = document.querySelector('#sidePanel');
-const main = document.querySelector("main");
-const closeBtn = document.querySelector("#closebtn");
-const navUrl = document.querySelectorAll(".nav-url");
+const main = document.querySelector('main');
+const closeBtn = document.querySelector('#closebtn');
+const navUrl = document.querySelectorAll('.nav-url');
 
-console.log(main);
-burgerCheck.addEventListener("click", () => {
+burgerCheck.addEventListener('click', () => {
   sidePanel.classList.remove('hide');
   sidePanel.classList.toggle('unhide');
 });
 
-closeBtn.addEventListener("click", () => {
+closeBtn.addEventListener('click', () => {
   sidePanel.classList.toggle('hide');
   sidePanel.classList.remove('unhide');
 });
 
-main.addEventListener("click", () => {
+main.addEventListener('click', () => {
   sidePanel.classList.toggle('hide');
   sidePanel.classList.remove('unhide');
 
-  if(burgerCheck.checked) {
+  if (burgerCheck.checked) {
     burgerCheck.checked = false;
   }
 });
 
-navUrl.forEach(tag => {
-  tag.addEventListener("click", () => {
-    sidePanel.classList.toggle('hide4');
+navUrl.forEach((tag) => {
+  tag.addEventListener('click', () => {
+    sidePanel.classList.toggle('hide');
     sidePanel.classList.remove('unhide');
-  })
+  });
 });

@@ -1,0 +1,176 @@
+@use "variables" as v;
+
+
+.article-wrapper {
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  min-height: 500px;
+
+  .article-detail {
+    background-color: white;
+    width: 95%;
+
+    .article-header {
+      img {
+        width: 100%;
+      }
+
+      .article-info {
+        width: 100%;
+        max-width: 250px;
+        height: 60px;
+
+        .wrapper {
+          margin: 10px;
+          display: grid;
+          grid-template-columns: 1fr 5fr;
+
+          .rectangle {
+            height: 60px;
+            background-color: v.$primary-color;
+          }
+
+          .article-title {
+            margin: 5px 0 0 5px;
+            h1 {
+              font-size: 1.5em;
+              font-weight: bold;
+              margin-bottom: 5px;
+            }
+          }
+        }
+      }
+    }
+
+
+    .article-content {
+      margin: 10px 10px 150px 10px;
+
+
+      .tag-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 20px 0 30px 0;
+
+        .tag {
+          background-color: v.$dark-primary;
+          min-width: 60px;
+          border-radius: 10px;
+          padding: 5px 5px 5px 10px;
+          margin: 5px;
+
+          span {
+            font-weight: 400;
+            color: white;
+          }
+        }
+      }
+
+      .content-wrapper {
+
+        .desc, .food-menus, .beverage-menus {
+          margin: 30px 0 30px 0;
+        }
+
+        .food-menus, .beverage-menus {
+
+          .list {
+            color: grey;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.form-wrapper {
+  margin: 60px 0 20px 0;
+
+  .form-title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .username-wrapper-form, .review-wrapper-form {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 10px 10px;
+
+    label {
+      margin-bottom: 10px;
+    }
+  }
+
+  .review-wrapper-form {
+    textarea {
+      height: 100px;
+    }
+  }
+}
+
+
+.reviews-wrapper {
+  margin: 70px 10px;
+
+  .review-title {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin-bottom: 40px;
+  }
+
+  .review {
+    margin: 15px 0 15px 0;
+    background-color: white;
+    border-left: solid 4px v.$primary-color;
+    padding: 10px;
+
+    .username {
+      font-weight: bold;
+    }
+
+    .review-text {
+      margin: 10px 0 0 10px;
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 574px) {
+  .article-detail {
+    width: 500px !important;
+  }
+
+  .form-wrapper, .reviews-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .container {
+      width: 500px;
+
+    }
+  }
+}
+
+@media only screen and (min-width: 898px) {
+  .article-detail {
+    width: 700px !important;
+  }
+
+  .form-wrapper, .reviews-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .container {
+      width: 700px;
+    }
+  }
+}

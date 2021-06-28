@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://use.fontawesome.com/b070c8f1df.js"></script>
+    <title>detail</title>
+</head>
+<body>
+<a href="#maincontent" class="skip-link">Menuju ke konten</a>
+<header class="header">
+  <nav class="header-nav">
+    <a id="check-burger" href="#open-sidebar">
+      <div class="spin-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+    </a>
+    <a class="a" href="#enak-logo"><img class="header-nav-icon" src="./images/svgs/ENAK_logo.svg" alt="Icon ENAK"></a>
+    <ul>
+      <li><a href="/">Home</a> </li>
+      <li><a href="#">Favourite</a> </li>
+      <li><a href="https://github.com/Redchlorophyll">About Us</a> </li>
+    </ul>
+  </nav>
+</header>
+
+
+<!-- navigation left -->
+
+<nav id="sidePanel" class="side-panel">
+  <div class="side-panel-link">
+    <a href="javascript:void(0)" id="closebtn" class="closebtn">×</a>
+    <a class="nav-url" href="/">HOME</a>
+    <a class="nav-url" href="#">FAVORITE</a>
+    <a class="nav-url" href="https://github.com/Redchlorophyll">ABOUT US</a>
+  </div>
+</nav>
+
+<!-- navigation left -->
+<main class="main" id="maincontent">
+  <detail-bar></detail-bar>
+
+
+  <div class="form-wrapper">
+    <div class="container">
+      <div class="form-title">
+        <h2>Tulis Review Kamu Disini!</h2>
+      </div>
+      <div class="username-wrapper-form">
+        <label for="username">username</label>
+        <input type="text" name="username" value="">
+      </div>
+      <div class="review-wrapper-form">
+        <label for="review">review</label>
+        <textarea name="review" rows="8" cols="80"></textarea>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="reviews-wrapper">
+    <div class="container">
+      <div class="review-title">
+        <h2>Review</h2>
+      </div>
+
+      <review-bar>
+        <span slot="name">Dhonni</span>
+        <span slot="review">Saya ganteng ga?</span>
+      </review-bar>
+    </div>
+  </div>
+
+  <button aria-label="like this movie" id="likeButton" class="like">
+     <i class="fa fa-heart-o" aria-hidden="true"></i>
+  </button>
+</main>
+<footer>
+  <span> <a href="#">copyright @ 2021 - Enak</a> </span>
+</footer>
+</body>
+</html>

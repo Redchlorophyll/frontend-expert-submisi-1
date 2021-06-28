@@ -1,11 +1,20 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.scss';
-import "./hamburger.js"
 import restaurants from '../DATA.json';
-import {restourantcard} from "./api.js";
+import HeroBar from './views/components/hero';
+import ReviewBar from './views/components/review';
+import DetailBar from './views/components/detail';
+import CardBar from './views/components/card';
+import NavBar from './views/components/navbar';
+import App from './views/app';
 
-console.log('Hello Coders! :)');
+// document.addEventListener('DOMContentLoaded', () => {
+//   restaurantCard(restaurants.restaurants);
+// });
+const app = new App({
+  content: document.querySelector('#mainContent'),
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-  restourantcard(restaurants.restaurants);
-})
+window.addEventListener('load', () => {
+  app.renderPage();
+});

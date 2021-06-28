@@ -1,31 +1,19 @@
-import restaurants from '../DATA.json';
+import CardBar from './views/components/card';
 
-export function restourantcard(datas) {
-  let card = ``;
-  for (let restaurant of datas) {
-    console.log(restaurant.city);
-
+function restaurantCard(datas) {
+  let card = '';
+  for (const restaurant of datas) {
     card += `
-    <a href="#">
-    <article class="card">
-      <div class="image-container">
-        <img src="${restaurant.pictureId}" alt="restaurant ${restaurant.name} yang terletak di ${restaurant.city}">
-      </div>
-      <div class="info-container">
-        <div class="info-wrapper">
-          <h3>${restaurant.name}</h3>
-          <h4>rating: <span>${restaurant.rating}/5</span></h4>
-          <ul>
-            <li>Lokasi: ${restaurant.city}</li>
-            <li><p>${restaurant.description}</p></li>
-          </ul>
-        </div>
-      </div>
-    </article>
-    </a>
+    <card-bar src="${restaurant.pictureId}" href="detail.html">
+    <div slot="name">${restaurant.name}</div>
+    <span slot="rating">${restaurant.rating} / 5</span>
+    <div slot="city">${restaurant.city}</div>
+    <div slot="desc">${restaurant.description}</div>
+    </card-bar>
     `;
   }
 
-  console.log(card);
-  document.getElementById("card-parent").innerHTML = card;
+  document.getElementById('card-parent').innerHTML = card;
 }
+
+export default restaurantCard;
