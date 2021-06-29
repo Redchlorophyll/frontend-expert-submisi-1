@@ -14,3 +14,17 @@
     height: 50px;
   }
 }
+
+.dissaprear {
+  animation: vanish 1s forwards;
+
+  @keyframes vanish {
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+}
+.hide {
+
+}

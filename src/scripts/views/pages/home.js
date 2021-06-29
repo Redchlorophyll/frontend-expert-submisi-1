@@ -6,11 +6,15 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 const Home = {
   async render() {
     return `
+    <div class="preloader-wrapper">
+      <img src="./preloader/807.gif" alt="">
+    </div>
     <div class="main-header">
       <h2 class="">Explore Tempat Makanan Enak</h2>
     </div>
     <div class="parent">
       <section id="card-parent" class="wrapper">
+
       </section>
     </div>
     `;
@@ -33,6 +37,9 @@ const Home = {
       </card-bar>
       `;
     });
+
+    const preLoader = document.querySelector('.preloader-wrapper');
+    preLoader.classList.toggle('dissaprear');
   },
 };
 

@@ -179,7 +179,7 @@ template.innerHTML = `
 </style>
 
 <nav class="header-nav">
-  <a id="check-burger" href="#open-sidebar">
+  <a id="check-burger">
     <div class="spin-toggle">
         <span></span>
         <span></span>

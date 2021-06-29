@@ -119,7 +119,7 @@ h2 {
       </div>
       <div class="content-wrapper">
         <div class="desc">
-          <p id="desc">quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
+          <p id="desc"></p>
         </div>
         <div class="food-menus">
           <p>Makanan:</p>
@@ -127,7 +127,7 @@ h2 {
         </div>
         <div class="beverage-menus">
           <p>minuman:</p>
-          <p class="list" id="beverages">Sirup , Jus mangga , Es teh , Jus jeruk , Teh manis , Kopi espresso , Es kopi , Minuman soda , Jus alpukat , Jus tomat , Es krim , Coklat panas</p>
+          <p class="list" id="drinks">Sirup , Jus mangga , Es teh , Jus jeruk , Teh manis , Kopi espresso , Es kopi , Minuman soda , Jus alpukat , Jus tomat , Es krim , Coklat panas</p>
         </div>
       </div>
     </div>
@@ -146,8 +146,32 @@ class DetailBar extends HTMLElement {
   }
 
   connectedCallback() {
+    const { foods, drinks } = this.restaurant.menus;
+
     this.setArticleHeader();
     this.setCategory();
+    this.setArticleContent();
+    this.setMenu(foods, '#foods');
+    this.setMenu(drinks, '#drinks');
+  }
+
+  setArticleContent() {
+    const { description } = this.restaurant;
+    const descParagraph = this.shadowRoot.querySelector('#desc');
+    descParagraph.innerHTML = description;
+  }
+
+  setMenu(menus, containerClassName) {
+    const container = this.shadowRoot.querySelector(containerClassName);
+    const menuLength = menus.length - 1;
+
+    menus.forEach((menu) => {
+      if (menus.indexOf(menu) === menuLength) {
+        container.innerHTML += `${menu.name}.`;
+      } else {
+        container.innerHTML += `${menu.name}, `;
+      }
+    });
   }
 
   setArticleHeader() {

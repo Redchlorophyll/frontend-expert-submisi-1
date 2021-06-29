@@ -17,14 +17,14 @@ class RestaurantSource {
   static async AddReview(review) {
     const response = await fetch(API_ENDPOINT.ADD_NEW_REVIEW, {
       method: 'POST',
-      body: JSON.stringify(review),
-      header: new Headers({
+      headers: {
         'Content-Type': 'application/json',
         'X-Auth-Token': CONFIG.API_KEY,
-      }),
+      },
+      body: JSON.stringify(review),
     });
 
-    return response;
+    return response.json();
   }
 }
 
