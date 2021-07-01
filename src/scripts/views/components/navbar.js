@@ -189,7 +189,7 @@ template.innerHTML = `
   <a class="a" href="#enak-logo"><img class="header-nav-icon" src="./images/svgs/ENAK_logo.svg" alt="Icon ENAK"></a>
   <ul>
     <li><a href="/">Home</a> </li>
-    <li><a href="#">Favourite</a> </li>
+    <li><a href="#/favorite">Favourite</a> </li>
     <li><a href="https://github.com/Redchlorophyll">About Us</a> </li>
   </ul>
 </nav>
@@ -198,7 +198,7 @@ template.innerHTML = `
   <div class="side-panel-link">
     <a href="javascript:void(0)" id="closebtn" class="closebtn">×</a>
     <a class="nav-url" href="/">HOME</a>
-    <a class="nav-url" href="#">FAVORITE</a>
+    <a class="nav-url" href="#/favorite">FAVORITE</a>
     <a class="nav-url" href="https://github.com/Redchlorophyll">ABOUT US</a>
   </div>
 </nav>

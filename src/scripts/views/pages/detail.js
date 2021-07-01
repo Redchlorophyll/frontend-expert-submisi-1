@@ -3,6 +3,7 @@ import RestaurantSource from '../../data/restaurant-source';
 import DetailBar from '../components/detail';
 import ReviewBar from '../components/review';
 import FormBar from '../components/form';
+import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const Detail = {
   async render() {
@@ -24,6 +25,7 @@ const Detail = {
         </div>
       </div>
     </div>
+    <div id="likeButtonContainer"></div>
     </div>
     `;
   },
@@ -58,6 +60,11 @@ const Detail = {
           <span slot="review">${review.review}</span>
         </review-bar>
         `;
+      });
+
+      LikeButtonInitiator.init({
+        likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        restaurant,
       });
 
       const preLoader = document.querySelector('.preloader-wrapper');

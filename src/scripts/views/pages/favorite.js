@@ -1,20 +1,21 @@
-import RestaurantSource from '../../data/restaurant-source';
-import HeroBar from '../components/hero';
+import EnakRestaurantIdb from '../../data/database';
 import CardBar from '../components/card';
 import API_ENDPOINT from '../../globals/api-endpoint';
 
-const Home = {
+const Favorite = {
   async render() {
     return `
     <div class="preloader-wrapper">
-      <img src="./preloader/807.gif" alt="">
+      <img src="./preloader/807.gif" alt="preloader">
     </div>
-    <div class="main-header">
-      <h2 class="">Explore Tempat Makanan Enak</h2>
+    <div class="empty-container">
+      <div class="img-parent">
+        <img class="img-empty" src="./images/svgs/undraw_Lost.svg">
+        <span>Oops.. Belum ada restoran favoritmu nih, yuk tambah sekarang!</span>
+      </div>
     </div>
-    <div class="parent">
+    <div class="favorite-parent">
       <section id="card-parent" class="wrapper">
-
       </section>
     </div>
     `;
@@ -22,11 +23,15 @@ const Home = {
 
   async afterRender() {
     try {
-      const restaurants = await RestaurantSource.RestaurantList();
+      const restaurants = await EnakRestaurantIdb.getAllRestaurants();
       const restaurantContainer = document.querySelector('#card-parent');
-
+      const emptyContainer = document.querySelector('.empty-container');
       const header = document.querySelector('.hero-wrapper');
-      header.innerHTML += '<hero-bar></hero-bar>';
+      header.innerHTML = '';
+
+      if (restaurants.length != 0) {
+        emptyContainer.innerHTML = '';
+      }
 
       restaurants.forEach((restaurant) => {
         restaurantContainer.innerHTML += `
@@ -50,4 +55,4 @@ const Home = {
   },
 };
 
-export default Home;
+export default Favorite;
