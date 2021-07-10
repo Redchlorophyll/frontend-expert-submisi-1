@@ -1,5 +1,7 @@
-import EnakRestaurantIdb from '../data/database';
+import EnakRestaurantIdb from '../data/database'; // eslint-disable-line
 import { createLikeButtonTemplate, createLikedButtonTemplate } from '../views/components/like';
+
+/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
 
 const LikeButtonInitiator = {
   async init({ likeButtonContainer, restaurant }) {

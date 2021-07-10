@@ -1,5 +1,5 @@
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');  // eslint-disable-line
+const CopyWebpackPlugin = require('copy-webpack-plugin');  // eslint-disable-line
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const path = require('path');
 

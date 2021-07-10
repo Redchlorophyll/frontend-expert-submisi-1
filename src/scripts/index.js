@@ -1,6 +1,6 @@
-import 'regenerator-runtime'; /* for async await transpile */
+import 'regenerator-runtime'; /* for async await transpile */ // eslint-disable-line
 import '../styles/main.scss';
-import NavBar from './views/components/navbar';
+import NavBar from './views/components/navbar'; // eslint-disable-line
 import App from './views/app';
 import swRegister from './utils/sw-register';
 

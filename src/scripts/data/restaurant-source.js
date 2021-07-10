@@ -1,4 +1,4 @@
-import API_ENDPOINT from '../globals/api-endpoint';
+import API_ENDPOINT from '../globals/api-endpoint'; // eslint-disable-line
 import CONFIG from '../globals/config';
 
 class RestaurantSource {

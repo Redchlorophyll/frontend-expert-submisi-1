@@ -1,4 +1,4 @@
-import runtime from 'serviceworker-webpack-plugin/lib/runtime';
+import runtime from 'serviceworker-webpack-plugin/lib/runtime'; // eslint-disable-line
 
 const swRegister = async () => {
   if ('serviceWorker' in navigator) {
@@ -6,7 +6,7 @@ const swRegister = async () => {
     return;
   }
 
-  console.log('service worker not supported in this browser');
+  console.log('service worker not supported in this browser'); // eslint-disable-line
 };
 
 export default swRegister;

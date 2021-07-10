@@ -1,8 +1,8 @@
 import UrlParser from '../../routes/url-parser';
 import RestaurantSource from '../../data/restaurant-source';
 import DetailBar from '../components/detail';
-import ReviewBar from '../components/review';
-import FormBar from '../components/form';
+import ReviewBar from '../components/review'; // eslint-disable-line
+import FormBar from '../components/form'; // eslint-disable-line
 import LikeButtonInitiator from '../../utils/like-button-initiator';
 
 const Detail = {
@@ -72,7 +72,7 @@ const Detail = {
 
       formBar.buttonEvent();
     } catch (err) {
-      const errorPopUp = confirm('failed to fetch, would you like to refresh page?');
+      const errorPopUp = confirm('failed to fetch, would you like to refresh page?'); // eslint-disable-line
       if (errorPopUp === true) {
         window.location.reload();
       }

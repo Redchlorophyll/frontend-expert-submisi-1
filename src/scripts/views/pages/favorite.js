@@ -1,5 +1,5 @@
-import EnakRestaurantIdb from '../../data/database';
-import CardBar from '../components/card';
+import EnakRestaurantIdb from '../../data/database'; // eslint-disable-line
+import CardBar from '../components/card'; // eslint-disable-line
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Favorite = {
@@ -29,7 +29,7 @@ const Favorite = {
       const header = document.querySelector('.hero-wrapper');
       header.innerHTML = '';
 
-      if (restaurants.length != 0) {
+      if (restaurants.length !== 0) {
         emptyContainer.innerHTML = '';
       }
 
@@ -47,7 +47,7 @@ const Favorite = {
       const preLoader = document.querySelector('.preloader-wrapper');
       preLoader.classList.toggle('dissaprear');
     } catch (err) {
-      const errorPopUp = confirm('failed to fetch, would you like to refresh page?');
+      const errorPopUp = confirm('failed to fetch, would you like to refresh page?'); // eslint-disable-line
       if (errorPopUp === true) {
         window.location.reload();
       }

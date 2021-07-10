@@ -1,5 +1,7 @@
 import CONFIG from '../globals/config';
 
+/* eslint no-underscore-dangle: ["error", { "allowAfterThis": true }] */
+
 const CacheHelper = {
   async cachingAppsShell(requests) {
     const cache = await this._openCache();

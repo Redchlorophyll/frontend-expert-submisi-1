@@ -1,4 +1,4 @@
-const createLikeButtonTemplate = () => `
+const createLikeButtonTemplate = () => ` // eslint-disable-line
   <button aria-label="like this movie" id="likeButton" class="like">
      <img src="./images/svgs/Like.svg" class="icon">
   </button>

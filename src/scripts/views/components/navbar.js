@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement('template'); // eslint-disable-line
 template.innerHTML = `
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -179,7 +179,7 @@ template.innerHTML = `
 </style>
 
 <nav class="header-nav">
-  <a id="check-burger">
+  <a href="#burgerIcon" id="check-burger">
     <div class="spin-toggle">
         <span></span>
         <span></span>
@@ -233,6 +233,7 @@ class NavBar extends HTMLElement {
   navigationEventListener() {
     this.navUrl.forEach((tag) => {
       tag.addEventListener('click', () => {
+        event.preventDefault();  // eslint-disable-line
         this.sidePanelEvent();
       });
     });

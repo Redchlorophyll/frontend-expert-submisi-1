@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement('template'); // eslint-disable-line
 template.innerHTML = `
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');

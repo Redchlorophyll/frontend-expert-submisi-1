@@ -1,4 +1,4 @@
-const template = document.createElement('template');
+const template = document.createElement('template'); // eslint-disable-line
 template.innerHTML = `
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -25,6 +25,7 @@ template.innerHTML = `
 
   .review .review-text {
     margin: 10px 0 0 10px;
+    word-wrap: break-word;
   }
   </style>
 

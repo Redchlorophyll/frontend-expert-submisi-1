@@ -1,5 +1,5 @@
-import RestaurantSource from '../../data/restaurant-source';
-import App from '../app';
+import RestaurantSource from '../../data/restaurant-source'; // eslint-disable-line
+import App from '../app'; // eslint-disable-line
 
 const template = document.createElement('template');
 template.innerHTML = `
@@ -23,6 +23,18 @@ template.innerHTML = `
     display: flex;
     flex-direction: column;
     margin: 20px 10px 10px;
+  }
+
+  .username-wrapper-form input {
+    height: 44px;
+  }
+
+  .submit-form button {
+    height: 44px;
+    background-color: #e6cf4d;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
   }
 
   label {
@@ -107,7 +119,7 @@ class FormBar extends HTMLElement {
       await RestaurantSource.AddReview(reviewData);
       app.renderPage();
     } else {
-      alert('user dan review tidak boleh kosong');
+      alert('user dan review tidak boleh kosong'); // eslint-disable-line
     }
   }
 }
