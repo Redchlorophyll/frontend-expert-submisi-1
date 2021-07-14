@@ -100,6 +100,7 @@ class CardBar extends HTMLElement {
     this.shadowRoot.appendChild(template.content.cloneNode(true));
     this.shadowRoot.querySelector('img').src = this.getAttribute('src');
     this.shadowRoot.querySelector('a').href = this.getAttribute('href');
+    this.shadowRoot.querySelector('img').alt = this.getAttribute('alt');
   }
 }
 

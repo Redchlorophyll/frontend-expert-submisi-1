@@ -1,12 +1,12 @@
 const createLikeButtonTemplate = () => ` // eslint-disable-line
-  <button aria-label="like this movie" id="likeButton" class="like">
-     <img src="./images/svgs/Like.svg" class="icon">
+  <button aria-label="like this restauran" id="likeButton" class="like">
+     <img src="./images/svgs/Like.svg" class="icon" alt="icon like restaurant">
   </button>
 `;
 
 const createLikedButtonTemplate = () => `
-  <button aria-label="unlike this movie" id="likeButton" class="like">
-    <img src="./images/svgs/Like-Solid.svg" class="icon">
+  <button aria-label="unlike this restaurant" id="likeButton" class="like">
+    <img src="./images/svgs/Like-Solid.svg" class="icon" alt="icon unlike restaurant">
   </button>
 `;
 

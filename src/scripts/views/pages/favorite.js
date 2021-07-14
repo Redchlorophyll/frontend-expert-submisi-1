@@ -35,7 +35,10 @@ const Favorite = {
 
       restaurants.forEach((restaurant) => {
         restaurantContainer.innerHTML += `
-        <card-bar src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}" href="${`#/detail/${restaurant.id}`}">
+        <card-bar
+              alt="tempat makan dengan nama ${restaurant.name} yang berada di ${restaurant.city}"
+              src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}"
+              href="${`#/detail/${restaurant.id}`}">
           <div slot="name">${restaurant.name}</div>
           <span slot="rating">${restaurant.rating} / 5</span>
           <div slot="city">${restaurant.city}</div>
