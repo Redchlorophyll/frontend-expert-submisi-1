@@ -21,6 +21,7 @@ template.innerHTML = `
 
   .review .username {
     font-weight: bold;
+    word-wrap: break-word;
   }
 
   .review .review-text {

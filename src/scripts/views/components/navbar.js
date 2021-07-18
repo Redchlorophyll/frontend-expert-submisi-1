@@ -78,14 +78,18 @@ template.innerHTML = `
 
   }
 
-  button {
+  .hamburgerButton {
+    background-color: #E6CE4D;
+    border: none;
+  }
+  /* button {
     width: 44px;
     height: 44px;
     background-color: red;
     position: absolute;
     opacity: 0;
     z-index: 1;
-  }
+  } */
 
 
   /*
@@ -135,7 +139,6 @@ template.innerHTML = `
     width: 0;
     opacity: 0;
   }
-
   @media only screen and (min-width:728px) {
     .header-nav {
       height: 54px;
@@ -179,13 +182,13 @@ template.innerHTML = `
 </style>
 
 <nav class="header-nav">
-  <a href="#burgerIcon" id="check-burger">
+  <button class="hamburgerButton" id="check-burger">
     <div class="spin-toggle">
         <span></span>
         <span></span>
         <span></span>
     </div>
-  </a>
+  </button>
   <a class="a" href="#enak-logo"><img class="header-nav-icon" src="./images/svgs/ENAK_logo.svg" alt="Icon ENAK"></a>
   <ul>
     <li><a href="/">Home</a> </li>

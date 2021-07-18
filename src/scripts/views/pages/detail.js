@@ -10,7 +10,9 @@ const Detail = {
     return `
     <div id="restaurant-parent">
     <div id="article-container">
-
+      <div class="preloader-wrapper">
+        <img src="./preloader/807.gif" alt="">
+      </div>
     </div>
     <div id="form-container">
     </div>
@@ -19,9 +21,6 @@ const Detail = {
       <div id="review-container" class="container">
         <div class="review-title">
           <h2>Review</h2>
-        </div>
-        <div class="preloader-wrapper">
-          <img src="./preloader/807.gif" alt="">
         </div>
       </div>
     </div>
@@ -32,12 +31,13 @@ const Detail = {
 
   async afterRender() {
     try {
+      const header = document.querySelector('.hero-wrapper');
+      header.innerHTML = '';
+
       const url = UrlParser.parseActiveUrlWithoutCombiner();
       const restaurant = await RestaurantSource.RestaurantDetail(url.id);
 
       document.title = `${restaurant.name} | ENAK`;
-      const header = document.querySelector('.hero-wrapper');
-      header.innerHTML = '';
 
       const detailBar = new DetailBar({
         restaurant,

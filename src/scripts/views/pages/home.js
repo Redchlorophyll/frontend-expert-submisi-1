@@ -6,15 +6,15 @@ import API_ENDPOINT from '../../globals/api-endpoint';
 const Home = {
   async render() {
     return `
-    <div class="preloader-wrapper">
-      <img src="./preloader/807.gif" alt="">
-    </div>
+
     <div class="main-header">
       <h2 class="">Explore Tempat Makanan Enak</h2>
     </div>
     <div class="parent">
       <section id="card-parent" class="wrapper">
-
+        <div class="preloader-wrapper">
+          <img src="./preloader/807.gif" alt="">
+        </div>
       </section>
     </div>
     `;
@@ -24,12 +24,12 @@ const Home = {
     try {
       const restaurants = await RestaurantSource.RestaurantList();
       const restaurantContainer = document.querySelector('#card-parent');
-
+      let restaurantCard = '';
       const header = document.querySelector('.hero-wrapper');
-      header.innerHTML += '<hero-bar></hero-bar>';
+      header.innerHTML = '<hero-bar></hero-bar>';
 
       restaurants.forEach((restaurant) => {
-        restaurantContainer.innerHTML += `
+        restaurantCard += `
         <card-bar
               alt="tempat makan dengan nama ${restaurant.name} yang berada di ${restaurant.city}"
               src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}"
@@ -42,8 +42,7 @@ const Home = {
         `;
       });
 
-      const preLoader = document.querySelector('.preloader-wrapper');
-      preLoader.classList.toggle('dissaprear');
+    restaurantContainer.innerHTML = restaurantCard;
     } catch (err) {
       const errorPopUp = confirm('failed to fetch, would you like to refresh page?'); // eslint-disable-line
       if (errorPopUp === true) {
