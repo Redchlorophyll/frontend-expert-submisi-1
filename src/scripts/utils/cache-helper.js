@@ -42,6 +42,7 @@ const CacheHelper = {
 
   async _addCache(request) {
     const cache = await this._openCache();
+    console.log('masuk');
     cache.add(request);
   },
 

@@ -1,5 +1,5 @@
-const createLikeButtonTemplate = () => ` // eslint-disable-line
-  <button aria-label="like this restauran" id="likeButton" class="like">
+const createLikeButtonTemplate = () => `
+  <button aria-label="like this restaurant" id="likeButton" class="like">
      <img src="./images/svgs/Like.svg" class="icon" alt="icon like restaurant">
   </button>
 `;

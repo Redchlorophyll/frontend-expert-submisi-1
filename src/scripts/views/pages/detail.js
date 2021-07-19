@@ -3,7 +3,8 @@ import RestaurantSource from '../../data/restaurant-source';
 import DetailBar from '../components/detail';
 import ReviewBar from '../components/review'; // eslint-disable-line
 import FormBar from '../components/form'; // eslint-disable-line
-import LikeButtonInitiator from '../../utils/like-button-initiator';
+import LikeButtonInitiator from '../../utils/like-button-presenter';
+import EnakRestaurantIdb from '../../data/database';
 
 const Detail = {
   async render() {
@@ -64,6 +65,7 @@ const Detail = {
 
       LikeButtonInitiator.init({
         likeButtonContainer: document.querySelector('#likeButtonContainer'),
+        favoriteRestaurant: EnakRestaurantIdb,
         restaurant,
       });
 

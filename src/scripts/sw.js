@@ -5,7 +5,7 @@ const { assets } = global.serviceWorkerOption;
 
 /* eslint-disable no-restricted-globals */
 self.addEventListener('install', (event) => {
-  event.waitUntil(CacheHelper.cachingAppShell([...assets, './']));
+  event.waitUntil(CacheHelper.cachingAppsShell([...assets, './']));
 
   // TODO: Caching App Shell Resource
 });
