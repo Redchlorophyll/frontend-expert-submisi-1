@@ -1,5 +1,9 @@
 Feature('Liking Restaurant');
 
-Scenario('test something', ({ I }) => {
+Before(({ I }) => {
+  I.amOnPage('/#/favorite');
+});
 
+Scenario('test something', ({ I }) => {
+  I.seeElement('#query');
 });

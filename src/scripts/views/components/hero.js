@@ -93,7 +93,12 @@ template.innerHTML = `
     <div class="overlay">
 
     </div>
-    <img src="./images/heros/hero-image_2.jpg" alt="Heros - gambar header">
+    <picture>
+      <source media="(max-width: 600px)" srcset="./images/heros/hero-image_2-small.jpg" type="image/jpeg">
+      <img
+      src="./images/heros/hero-image_2-large.jpg"
+      alt="Heros - gambar header"
+    </picture>
   </div>
 </div>
 <div class="paper-wrapper">
