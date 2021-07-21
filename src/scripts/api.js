@@ -1,4 +1,4 @@
-import CardBar from './views/components/card'; // eslint-disable-line
+import './views/components/card'; // eslint-disable-line
 
 function restaurantCard(datas) {
   let card = '';

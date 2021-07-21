@@ -11,13 +11,13 @@ const dbPromise = openDB(DATABASE_NAME, DATABASE_VERSION, {
 
 const EnakRestaurantIdb = {
   async getRestaurant(id) {
-    return (await dbPromise).get(OBJECT_STORE_NAME, id);
+    return (await dbPromise).get(OBJECT_STORE_NAME, id); // eslint-disable-line
   },
   async getAllRestaurants() {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
-  async putRestaurant(movie) {
-    return (await dbPromise).put(OBJECT_STORE_NAME, movie);
+  async putRestaurant(restaurant) {
+    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
   },
   async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);

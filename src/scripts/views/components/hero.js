@@ -117,4 +117,3 @@ class HeroBar extends HTMLElement {
 }
 
 customElements.define('hero-bar', HeroBar);
-export default HeroBar;

@@ -1,6 +1,6 @@
 import RestaurantSource from '../../data/restaurant-source'; // eslint-disable-line
-import HeroBar from '../components/hero'; // eslint-disable-line
-import CardBar from '../components/card'; // eslint-disable-line
+import '../components/hero'; // eslint-disable-line
+import '../components/card'; // eslint-disable-line
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Home = {
@@ -42,8 +42,9 @@ const Home = {
         `;
       });
 
-    restaurantContainer.innerHTML = restaurantCard;
+      restaurantContainer.innerHTML = restaurantCard;
     } catch (err) {
+      console.log(err);
       const errorPopUp = confirm('failed to fetch, would you like to refresh page?'); // eslint-disable-line
       if (errorPopUp === true) {
         window.location.reload();

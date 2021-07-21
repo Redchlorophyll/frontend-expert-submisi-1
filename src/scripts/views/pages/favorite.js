@@ -1,5 +1,5 @@
 import EnakRestaurantIdb from '../../data/database'; // eslint-disable-line
-import CardBar from '../components/card'; // eslint-disable-line
+import '../components/card'; // eslint-disable-line
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Favorite = {
@@ -10,7 +10,7 @@ const Favorite = {
     </div>
     <div class="empty-container">
       <div class="img-parent">
-        <img class="img-empty" src="./images/svgs/undraw_Lost.svg">
+        <img class="img-empty" src="./images/svgs/undraw_Lost.svg" alt="404 NOT FOUND">
         <span>Oops.. Belum ada restoran favoritmu nih, yuk tambah sekarang!</span>
       </div>
     </div>

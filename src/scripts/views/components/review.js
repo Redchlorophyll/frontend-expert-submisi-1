@@ -51,4 +51,3 @@ class ReviewBar extends HTMLElement {
 }
 
 customElements.define('review-bar', ReviewBar);
-export default ReviewBar;

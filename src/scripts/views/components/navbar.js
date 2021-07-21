@@ -127,7 +127,7 @@ template.innerHTML = `
   }
 
   .side-panel-link a:hover {
-    color: pink;
+    color: grey;
   }
 
   .unhide {
@@ -191,7 +191,7 @@ template.innerHTML = `
   </button>
   <a class="a" href="#enak-logo"><img class="header-nav-icon" src="./images/svgs/ENAK_logo.svg" alt="Icon ENAK"></a>
   <ul>
-    <li><a href="/">Home</a> </li>
+    <li><a href="#/">Home</a> </li>
     <li><a href="#/favorite">Favourite</a> </li>
     <li><a href="https://github.com/Redchlorophyll">About Us</a> </li>
   </ul>
@@ -200,7 +200,7 @@ template.innerHTML = `
 <nav id="sidePanel" class="side-panel">
   <div class="side-panel-link">
     <a href="javascript:void(0)" id="closebtn" class="closebtn">×</a>
-    <a class="nav-url" href="/">HOME</a>
+    <a class="nav-url" href="#/">HOME</a>
     <a class="nav-url" href="#/favorite">FAVORITE</a>
     <a class="nav-url" href="https://github.com/Redchlorophyll">ABOUT US</a>
   </div>
@@ -225,19 +225,27 @@ class NavBar extends HTMLElement {
     this.sideBarClickEventListener(this.burgerCheck);
     this.sideBarClickEventListener(this.closeBtn);
     this.navigationEventListener();
+
+    this.navUrl.forEach((tag) => {
+      tag.addEventListener('click', (event) => {
+        this.sidePanelEvent();
+        event.stopPropagation();
+      });
+    });
   }
 
   sideBarClickEventListener(attribute) {
-    attribute.addEventListener('click', () => {
+    attribute.addEventListener('click', (event) => {
       this.sidePanelEvent();
+      event.stopPropagation();
     });
   }
 
   navigationEventListener() {
     this.navUrl.forEach((tag) => {
-      tag.addEventListener('click', () => {
-        event.preventDefault();  // eslint-disable-line
+      tag.addEventListener('click', (event) => {
         this.sidePanelEvent();
+        event.stopPropagation();
       });
     });
   }
@@ -249,5 +257,3 @@ class NavBar extends HTMLElement {
 }
 
 customElements.define('nav-bar', NavBar);
-
-export default NavBar;
