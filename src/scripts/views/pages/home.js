@@ -1,6 +1,6 @@
 import RestaurantSource from '../../data/restaurant-source'; // eslint-disable-line
-import HeroBar from '../components/hero'; // eslint-disable-line
-import CardBar from '../components/card'; // eslint-disable-line
+import '../components/hero'; // eslint-disable-line
+import '../components/card'; // eslint-disable-line
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Home = {
@@ -33,16 +33,21 @@ const Home = {
         <card-bar
               alt="tempat makan dengan nama ${restaurant.name} yang berada di ${restaurant.city}"
               src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}"
-              href="${`#/detail/${restaurant.id}`}">
-          <div slot="name">${restaurant.name}</div>
-          <span slot="rating">${restaurant.rating} / 5</span>
-          <div slot="city">${restaurant.city}</div>
-          <div slot="desc">${restaurant.description}</div>
+              href="${`#/detail/${restaurant.id}`}"
+              name="${restaurant.name}"
+              rating="${restaurant.rating}/5"
+              city="${restaurant.city}"
+              desc="${restaurant.description}"
+              >
+          <div slot="name"></div>
+          <span  / 5</span>
+          <div slot="city"></div>
+          <div slot="desc"></div>
         </card-bar>
         `;
       });
 
-    restaurantContainer.innerHTML = restaurantCard;
+      restaurantContainer.innerHTML = restaurantCard;
     } catch (err) {
       const errorPopUp = confirm('failed to fetch, would you like to refresh page?'); // eslint-disable-line
       if (errorPopUp === true) {

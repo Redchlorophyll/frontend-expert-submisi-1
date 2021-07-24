@@ -1,5 +1,5 @@
 import EnakRestaurantIdb from '../../data/database'; // eslint-disable-line
-import CardBar from '../components/card'; // eslint-disable-line
+import '../components/card'; // eslint-disable-line
 import API_ENDPOINT from '../../globals/api-endpoint';
 
 const Favorite = {
@@ -11,7 +11,7 @@ const Favorite = {
     <div class="empty-container">
       <div class="img-parent">
         <img class="img-empty" src="./images/svgs/undraw_Lost.svg">
-        <span>Oops.. Belum ada restoran favoritmu nih, yuk tambah sekarang!</span>
+        <span class="restaurant-item__not__found">Oops.. Belum ada restoran favoritmu nih, yuk tambah sekarang!</span>
       </div>
     </div>
     <div class="favorite-parent">
@@ -38,11 +38,16 @@ const Favorite = {
         <card-bar
               alt="tempat makan dengan nama ${restaurant.name} yang berada di ${restaurant.city}"
               src="${API_ENDPOINT.IMAGE('small', restaurant.pictureId)}"
-              href="${`#/detail/${restaurant.id}`}">
-          <div slot="name">${restaurant.name}</div>
-          <span slot="rating">${restaurant.rating} / 5</span>
-          <div slot="city">${restaurant.city}</div>
-          <div slot="desc">${restaurant.description}</div>
+              href="${`#/detail/${restaurant.id}`}"
+              name="${restaurant.name}"
+              rating="${restaurant.rating}/5"
+              city="${restaurant.city}"
+              desc="${restaurant.description}"
+              >
+          <div slot="name"></div>
+          <span  / 5</span>
+          <div slot="city"></div>
+          <div slot="desc"></div>
         </card-bar>
         `;
       });

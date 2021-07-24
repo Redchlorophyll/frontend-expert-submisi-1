@@ -225,25 +225,20 @@ class NavBar extends HTMLElement {
     this.sideBarClickEventListener(this.burgerCheck);
     this.sideBarClickEventListener(this.closeBtn);
     this.navigationEventListener();
-
-    this.navUrl.forEach((tag) => {
-      tag.addEventListener('click', () => {
-        this.sidePanelEvent();
-      });
-    });
   }
 
   sideBarClickEventListener(attribute) {
-    attribute.addEventListener('click', () => {
+    attribute.addEventListener('click', (event) => {
       this.sidePanelEvent();
+      event.stopPropagation();
     });
   }
 
   navigationEventListener() {
     this.navUrl.forEach((tag) => {
-      tag.addEventListener('click', () => {
-        event.preventDefault();  // eslint-disable-line
+      tag.addEventListener('click', (event) => {
         this.sidePanelEvent();
+        event.stopPropagation();
       });
     });
   }
@@ -255,5 +250,3 @@ class NavBar extends HTMLElement {
 }
 
 customElements.define('nav-bar', NavBar);
-
-export default NavBar;

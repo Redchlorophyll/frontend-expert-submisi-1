@@ -1,5 +1,7 @@
-const template = document.createElement('template'); // eslint-disable-line
-template.innerHTML = `
+import 'lazysizes';
+import 'lazysizes/plugins/parent-fit/ls.parent-fit';
+
+const template = `
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
@@ -75,15 +77,15 @@ template.innerHTML = `
   <a>
   <article class="card">
     <div class="image-container">
-      <img>
+      <img class="lazyload">
     </div>
     <div class="info-container">
       <div class="info-wrapper">
-        <h3><slot name="name" /></h3>
-        <h4>rating: <span><slot name="rating" /></span></h4>
+        <h3 class="name"></h3>
+        <h4>rating: <span class="rating"></span></h4>
         <ul>
-          <li><slot name="city" /></li>
-          <li><p><slot name="desc" /></p></li>
+          <li class="city"></li>
+          <li><p class="desc"></p></li>
         </ul>
       </div>
     </div>
@@ -96,11 +98,15 @@ class CardBar extends HTMLElement {
     super();
     this.showInfo = true;
 
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
-    this.shadowRoot.querySelector('img').src = this.getAttribute('src');
-    this.shadowRoot.querySelector('a').href = this.getAttribute('href');
-    this.shadowRoot.querySelector('img').alt = this.getAttribute('alt');
+    // this.attachShadow({ mode: 'open' });
+    this.innerHTML = template;
+    this.querySelector('img').src = this.getAttribute('src');
+    this.querySelector('a').href = this.getAttribute('href');
+    this.querySelector('img').alt = this.getAttribute('alt');
+    this.querySelector('.name').innerText = this.getAttribute('name');
+    this.querySelector('.rating').innerText = this.getAttribute('rating');
+    this.querySelector('.city').innerText = this.getAttribute('city');
+    this.querySelector('.desc').innerText = this.getAttribute('desc');
   }
 }
 

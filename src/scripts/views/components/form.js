@@ -1,8 +1,7 @@
 import RestaurantSource from '../../data/restaurant-source'; // eslint-disable-line
 import App from '../app'; // eslint-disable-line
 
-const template = document.createElement('template');
-template.innerHTML = `
+const template = `
 <style>
 .form-wrapper {
   margin: 60px 0 20px 0;
@@ -73,11 +72,11 @@ template.innerHTML = `
     </div>
     <div class="username-wrapper-form">
       <label for="username">username</label>
-      <input id="username" type="text" name="username" value="">
+      <input id="username" type="text" name="username" class="input" value="">
     </div>
     <div class="review-wrapper-form">
       <label for="review">review</label>
-      <textarea id="review" name="review" rows="8" cols="80"></textarea>
+      <textarea id="review" name="review" rows="8" class="textarea" cols="80"></textarea>
     </div>
     <div class="submit-form">
       <button id="addReviewButton" type="button" name="button">Simpan</button>
@@ -90,14 +89,12 @@ class FormBar extends HTMLElement {
   constructor({ id }) {
     super();
     this.showInfo = true;
-
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.innerHTML = template;
     this.id = id;
   }
 
   buttonEvent() {
-    const addReviewButton = this.shadowRoot.querySelector('#addReviewButton');
+    const addReviewButton = this.querySelector('#addReviewButton');
     addReviewButton.addEventListener('click', () => {
       this.addReview();
     });
@@ -107,8 +104,8 @@ class FormBar extends HTMLElement {
     const app = new App({
       content: document.querySelector('#mainContent'),
     });
-    const userName = this.shadowRoot.querySelector('#username').value;
-    const review = this.shadowRoot.querySelector('#review').value;
+    const userName = this.querySelector('#username').value;
+    const review = this.querySelector('#review').value;
     const reviewData = {
       id: this.id,
       name: userName,

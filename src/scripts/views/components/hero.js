@@ -95,9 +95,8 @@ template.innerHTML = `
     </div>
     <picture>
       <source media="(max-width: 600px)" srcset="./images/heros/hero-image_2-small.jpg" type="image/jpeg">
-      <img
-      src="./images/heros/hero-image_2-large.jpg"
-      alt="Heros - gambar header"
+      <source media="(max-width: 900px)" srcset="./images/heros/hero-image_2-large.jpg" type="image/jpeg">
+      <img src="./images/heros/hero-image_2.jpg" alt="Heros - gambar header"
     </picture>
   </div>
 </div>
@@ -122,4 +121,3 @@ class HeroBar extends HTMLElement {
 }
 
 customElements.define('hero-bar', HeroBar);
-export default HeroBar;

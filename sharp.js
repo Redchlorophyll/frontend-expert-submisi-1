@@ -14,12 +14,12 @@ fs.readdirSync(target)
     sharp(`${target}/${image}`)
       .resize(800)
       .toFile(path.resolve(__dirname, `${destination}/${image.split('.')
-          .slice(0, -1)
-          .join('.')}-large.jpg`));
+        .slice(0, -1)
+        .join('.')}-large.jpg`));
 
-          sharp(`${target}/${image}`)
-            .resize(480)
-            .toFile(path.resolve(__dirname, `${destination}/${image.split('.')
-                .slice(0, -1)
-                .join('.')}-small.jpg`));
+    sharp(`${target}/${image}`)
+      .resize(480)
+      .toFile(path.resolve(__dirname, `${destination}/${image.split('.')
+        .slice(0, -1)
+        .join('.')}-small.jpg`));
   });

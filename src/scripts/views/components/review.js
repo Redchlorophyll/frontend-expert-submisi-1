@@ -1,5 +1,4 @@
-const template = document.createElement('template'); // eslint-disable-line
-template.innerHTML = `
+const template = `
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
@@ -32,10 +31,10 @@ template.innerHTML = `
 
   <div class="review">
     <div class="username">
-      <span><slot name="name" /></span>
+      <span class="reviewer-name"></span>
     </div>
     <div class="review-text">
-      <p><slot name="review" /></p>
+      <p class="user-review"></p>
     </div>
   </div>
 `;
@@ -45,10 +44,10 @@ class ReviewBar extends HTMLElement {
     super();
     this.showInfo = true;
 
-    this.attachShadow({ mode: 'open' });
-    this.shadowRoot.appendChild(template.content.cloneNode(true));
+    this.innerHTML = template;
+    this.querySelector('.reviewer-name').innerText = this.getAttribute('reviewer-name');
+    this.querySelector('.user-review').innerText = this.getAttribute('user-review');
   }
 }
 
 customElements.define('review-bar', ReviewBar);
-export default ReviewBar;

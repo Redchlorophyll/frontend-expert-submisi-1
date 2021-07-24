@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');  // eslint-disab
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');  // eslint-disable-line
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');  // eslint-disable-line
 const TerserPlugin = require('terser-webpack-plugin');  // eslint-disable-line
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; // eslint-disable-line
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -17,6 +18,27 @@ module.exports = merge(common, {
       new OptimizeCssAssetsPlugin(),
       new TerserPlugin(),
     ],
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
   },
   module: {
     rules: [
@@ -45,5 +67,6 @@ module.exports = merge(common, {
   plugins: [
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
+    new BundleAnalyzerPlugin(),
   ],
 });
