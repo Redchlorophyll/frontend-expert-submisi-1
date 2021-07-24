@@ -21,11 +21,11 @@ const EnakRestaurantIdb = {
     return (await dbPromise).getAll(OBJECT_STORE_NAME);
   },
   async putRestaurant(restaurant) {
-    if (!restaurant.hasOwnProperty('id')) {
+    if (!restaurant.hasOwnProperty('id')) { // eslint-disable-line
       return;
     }
 
-    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant);
+    return (await dbPromise).put(OBJECT_STORE_NAME, restaurant); // eslint-disable-line
   },
   async deleteRestaurant(id) {
     return (await dbPromise).delete(OBJECT_STORE_NAME, id);
