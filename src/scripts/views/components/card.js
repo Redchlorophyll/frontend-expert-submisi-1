@@ -100,7 +100,8 @@ class CardBar extends HTMLElement {
 
     // this.attachShadow({ mode: 'open' });
     this.innerHTML = template;
-    this.querySelector('img').src = this.getAttribute('src');
+    const imageUrl = this.getAttribute('src');
+    this.querySelector('img').setAttribute('data-src', imageUrl);
     this.querySelector('a').href = this.getAttribute('href');
     this.querySelector('img').alt = this.getAttribute('alt');
     this.querySelector('.name').innerText = this.getAttribute('name');
