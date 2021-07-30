@@ -182,7 +182,7 @@ template.innerHTML = `
 </style>
 
 <nav class="header-nav">
-  <button class="hamburgerButton" id="check-burger">
+  <button aria-label="hamburger button" class="hamburgerButton" id="check-burger">
     <div class="spin-toggle">
         <span></span>
         <span></span>

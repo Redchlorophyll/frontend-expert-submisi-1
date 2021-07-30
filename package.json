@@ -13,7 +13,6 @@
     "test": "karma start",
     "build-image": "node sharp.js",
     "start": "node server.js",
-    "heroku-postbuild": "webpack -p",
     "e2e": "codeceptjs run --steps",
     "lint": "eslint ./src"
   },
