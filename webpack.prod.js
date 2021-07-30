@@ -68,8 +68,8 @@ module.exports = merge(common, {
     new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({ filename: '[name].[hash].css' }),
     new BundleAnalyzerPlugin({
-      analyzerMode: "static",
-      openAnalyzer: false
+      analyzerMode: 'static',
+      openAnalyzer: false,
     }),
   ],
 });
